@@ -12,6 +12,13 @@
 \newcommand{\docRef}{PSTN-017}
 \newcommand{\docUpstreamLocation}{\url{https://github.com/lsst-pst/pstn-017}}
 
+\providecommand{\secref}[1]{Section~\ref{#1}}
+\providecommand{\appref}[1]{Appendix~\ref{#1}}
+\providecommand{\partref}[1]{Part~\ref{#1}}
+\providecommand{\tabref}[1]{Table~\ref{#1}}
+\providecommand{\figref}[1]{Figure~\ref{#1}}
+\providecommand{\eqnref}[1]{Eq.~\ref{#1}}
+
 
 \begin{document}
 \input{authors}
@@ -25,10 +32,10 @@
 
 \appendix
 % Remove this when you strart your paper
-\input{appendix}
+%\input{appendix}
 % Include all the relevant bib files.
 % https://lsst-texmf.lsst.io/lsstdoc.html#bibliographies
-\section{References} \label{sec:bib}
+\label{sec:bib}
 \bibliographystyle{yahapj}
 \bibliography{local,lsst,lsst-dm,refs_ads,refs,books}
 
