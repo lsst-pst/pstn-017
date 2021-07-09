@@ -10,3 +10,7 @@ http
 p
 s
 A
+USA
+NJ
+AZ
+WA
