@@ -1,7 +1,62 @@
 \section{Data Products} \label{sec:dataproducts}
-In operations Data Production will use the the software outlined in \secref{sec:softproducts} to produce the various data products.
+
+The LSST data collected by Rubin Observatory is automatically processed by the LSST science pipelines, as described in (\S~\ref{sec:softproduts})  to produce the LSST data products. The  reduced images, catalogs and alerts. 
+
+\subsection{Data Product  Variety} 
+The type/variety of data products include. Describe the science that they will enable 
+\begin{itemize}
+\item images:  raw single visit images, calibrated processed visit images (PVI), coadd images, cutouts (postage stamps) 
+\item catalogs: DR includes Object, Source, DIASource, DIAObject, 
+\item alerts: Alerts to objects that have changed in brightness or position on the sky. 
+\end{itemize}
+
+
+
+Generation of intermediate data products, in particular to generate intermediate flavours of coadds. 
+
+{\tt Object} catalog photo-$z$ data products.
+
 
  The detailed  Data Products Definition may be found in  \cite{LSE-163}.
 Validation of the products is covered in \cite{PSTN-024}.
 
+\subsection{Data Product Categories} 
+LSST defines three categories of data products. 
 
+LSST defines three data product categories,
+\begin{itemize}
+\item Prompt: 
+\item Data Release: 
+\item User Generated: 
+\end{itemize}
+The first two, {\tt Prompt} and {\tt Data Release} data products are produced and delivered by the DM system described in this paper. 
+The third, {\tt User Generated} data products are produced by the Rubin Science Community using the {\tt Prompt} and {\tt Data Release} together possibly with data from other surveys. 
+
+
+The data product categories are outlined in \cite{lse-319}
+
+In operations Data Production will use the the software outlined in \secref{sec:softproducts} to produce the various data products.
+
+\subsection{Data Product Verification}
+The quality of all Level 1 and Level 2 data products will be extensively assessed, both automatically as well as manually. 
+Described in detail in \cite{pstn-024}
+Not sure this section is needed. 
+
+
+\subsection{Commissioning Data Products}  \label{sec:dp-commissioning}
+Describe here (possibly in a table) the exact data products delivered in commissioning and the science that they enable. 
+This will be a high level description and can refer to the DP2 DPDD for exact details. 
+
+\subsection{Anticipated Data Release 1 Data Products} \label{sec:dp-dr1}
+
+%\item proper motions for Gaia stars 
+\begin{itemize}
+\item photometric redshifts
+\end{itemize}
+
+
+The data products delivered during commissioning represent only an initial set of data products. 
+The commissioning data set does not enable the production of .... (galaxy shape measurements ... )
+In addition to the commissioning data products described in \S~\ref{sec:dp-commissioning}, we anticipate providing: 
+
+This list is neither definitive nor exhaustive; the exact list of data products to be provided as part of future LSST Data Releases will be determined closer to the time of release. 
