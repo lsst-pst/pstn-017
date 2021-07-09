@@ -61,3 +61,9 @@ To update to a newer version of `lsst-texmf`_, you can update the submodule in t
 Commit, then push, the updated submodule.
 
 .. _lsst-texmf: https://github.com/lsst/lsst-texmf
+
+Guidelines for authors (in development)
+=======================================
+
+Tense: Write in the present tense. e.g The raw data is processed by the LSST science pipelines. 
+ 
