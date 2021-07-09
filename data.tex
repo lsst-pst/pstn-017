@@ -6,7 +6,7 @@ LSST science, without the need to access the raw pixels or for users to reproces
 %Describe the science  that they will enable - i.e why are we creating these data products? 
 %How are they created, how are they distributed and or served
 
-\subsection{Types of Data Product} \label{sec:dp-categories}
+\subsection{Types of Data Product} \label{sec:dp-types}
 LSST produces three types of data products;  images, catalogs and alerts. 
 
 \paragraph {\tt Images}~  
@@ -49,7 +49,7 @@ Prompt image data products include:
 \paragraph {Alerts}  
 
 
-\subsubsection{Data Release data products} \label{sec:dp-prompt}
+\subsubsection{Data Release data products} \label{sec:dp-release}
 A Data Release (DR) is specific, fixed {\tt snapshots} of the data at a given time. 
 Data Releases are made periodically and that can be used and 
 unambiguously referenced in published analyses. 
@@ -62,7 +62,7 @@ parameters for moving objects, and an appropriate compact description of light c
 The Data Release data products will include a uniform reprocessing of the difference imaging-based Prompt data products.
 
 
-\subsubsection{User Generated data products} 
+\subsubsection{User Generated data products} \label{sec:dp-user}
 User Generated data products data products will originate entirely from the community, including project teams. 
 These will be created and stored using suitable Application Programming Interfaces (APIs) 
 that will be provided by the LSST Data Management System. 
@@ -119,7 +119,7 @@ Desscribe the generation of intermediate data products, in particular to generat
 
 \subsection{Data Product Verification}
 The quality of all Level 1 and Level 2 data products will be extensively assessed, both automatically as well as manually. 
-Described in detail in \cite{pstn-024}
+Described in detail in \cite{PSTN-024}
 Not sure this section is needed. 
 
 DP verification and QA will be carried out automatically following reprocessing runs and in advance of each data release 
