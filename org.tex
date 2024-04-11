@@ -1,7 +1,7 @@
 
 \section{Organisation of Data Management} \label{sec:org}
 
-The Organisation and management of DM is covered in detail in \cite{LDM-294}.
+The Organisation and management of DM is covered in detail in \citet{LDM-294}.
 As shown in \figref{fig:org} DM Management is aligned mainly along the Work Breakdown Structure (WBS) of the project.
 It was found that a strict adherence to the WBS structure led to some products not being the responsibility's of a single manager when they spanned the organisation.
 To address this two cross cutting teams were identified  to take care of the Science Platform and middleware.
@@ -14,31 +14,32 @@ This also involves being the point of contact for any other stakeholders and inc
 Interpretation of requirements is always difficult on large projects like Rubin observatory, they exist over a long period of time, were often written by people no longer on the project, and frequently are not easily verifiable.
 Hence another important roll of the product owner is in defining the verification tests for the requirements.
 Tests give a very concrete interpretation of the requirement.
-Verification covers all subsystems, software and data  see \cite{PSTN-024}.
-  DM will be verified and validated as part of System verification and validation \cite{2014SPIE.9150E..0NS} \cite {PSTN-029}
+Verification covers all subsystems, software and data  \citep{PSTN-024}.
+  DM will be verified and validated as part of System verification and validation \citep{2014SPIE.9150E..0NS,PSTN-029}
 
 
 
 \begin{figure}
 \plotone{DmOrg}
-\caption{Org chart for Rubin DM from \cite{LDM-294}\label{fig:org}}
+\caption{Org chart for Rubin DM from \citet{LDM-294}\label{fig:org}}
 \end{figure}
 
 \subsection{Open development process}\label{sec:devproc}
+
 From the outset DM was seen as a large scientific  software project.
-Agile methodologies \cite{it:agile}  are particularly suited to the uncertainties of a science project and
+Agile methodologies \citep{it:agile}  are particularly suited to the uncertainties of a science project and
 a cyclical approach to software development, with a period of six months was adopted early on.
 A set of Epics corresponding to major pieces of work are defined at the beginning of each cycle.
 Tickets to track the work are created in Jira.
 
 All code, and in fact documents, are kept under continuous integration using a mixture of Jenkins and GitHub Actions.
-Everything it under an open source licensed (mainly GPL) and available openly on GitHub.com.
+Everything it under an open source licensed (mainly GPL but some libraries that are particularly suited to more wider adoption use the BSD 3-clause license) and available openly on GitHub.com.
 For the pipelines traditional releases are made each six months.
 Within SQuaRE services are released as needed and continuously deployed (currently with ArgoCD).
 
 This is a large NSF funded project and so must still adhere to a more waterfall style of reporting.
 Milestones for major functionality, tied to major project milestones, were laid out and tracked in the usual manner.
-The DM approach to the Earned Value Management System (EVMS) used through Rubin construction is shown in \cite {DMTN-020}.
+The DM approach to the Earned Value Management System (EVMS) used through Rubin construction is shown in \citet{DMTN-020,2016SPIE.9911E..0NK}.
 
 \subsection{Mode of work}\label{sec:mode}
 The DM  team is distributed in several centers across the continental US as well as Chile and France.
@@ -58,6 +59,6 @@ DM captures decision making in technical notes (the DMTN series) or formal docum
 \subsection{Relationship to other subsystems}
 
 As already mentioned all of Rubin interacts with System Engineering
-   We take images from the  LSST camera: \cite{2010SPIE.7735E..0JK}
+   We take images from the  LSST camera: \citet{2010SPIE.7735E..0JK}
 
-   We are commanded and listen to the  Telescope  and site software  \cite{2014SPIE.9145E..1AG}
+   We are commanded and listen to the  Telescope  and site software  \citep{2014SPIE.9145E..1AG}

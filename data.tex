@@ -1,79 +1,79 @@
 \section{Data Products} \label{sec:dataproducts}
 
 The LSST data collected by Rubin Observatory is automatically processed by the LSST science pipelines, as described in (\S~\ref{sec:softproducts}) to produce the LSST data products. The data products have been designed to enable the vast majority of
-LSST science, without the need to access the raw pixels or for users to reprocess the data. (it would be a gargantuan effort if not and totally unscalable).  Some example science cases where  pixel access  or a reprocessing of the data might be warranted are, subtracting a different background (LSB science), reprocessing a small fraction of images to develop the systematics budget for weak lensing studies (DESC). (others?). This section provides a high-level overview of the LSST data products. 
+LSST science, without the need to access the raw pixels or for users to reprocess the data. (it would be a gargantuan effort if not and totally unscalable).  Some example science cases where  pixel access  or a reprocessing of the data might be warranted are, subtracting a different background (LSB science), reprocessing a small fraction of images to develop the systematics budget for weak lensing studies (DESC). (others?). This section provides a high-level overview of the LSST data products.
 
-%Describe the science  that they will enable - i.e why are we creating these data products? 
+%Describe the science  that they will enable - i.e why are we creating these data products?
 %How are they created, how are they distributed and or served
 
 \subsection{Types of Data Product} \label{sec:dp-types}
-LSST produces three types of data products;  images, catalogs and alerts. 
+LSST produces three types of data products;  images, catalogs and alerts.
 
-\paragraph {\tt Images}~  
-pricessed visit images (PVI) are images that have been corrected for instrumental effects and photometrically and astrometrically  calibrated. 
-raw single visit images, calibrated processed visit images (PVI), coadd images, cutouts (postage stamps) 
+\paragraph {\tt Images}~
+pricessed visit images (PVI) are images that have been corrected for instrumental effects and photometrically and astrometrically  calibrated.
+raw single visit images, calibrated processed visit images (PVI), coadd images, cutouts (postage stamps)
 
 \paragraph {\tt  catalogs}~
-DR includes Object, Source, DIASource, DIAObject, 
+DR includes Object, Source, DIASource, DIAObject,
 
-\paragraph {\tt  alerts}~ 
-A composite data product that includes image cutouts (postage stamps) and extracts of catalog data. 
-Alerts packets are distributed via the alert distribution system (\S~ref), one alert for each object that 
+\paragraph {\tt  alerts}~
+A composite data product that includes image cutouts (postage stamps) and extracts of catalog data.
+Alerts packets are distributed via the alert distribution system (\S~ref), one alert for each object that
 has changed in brightness or position on the sky.
 
 \subsection{Categories of Data Product} \label{sec:dp-categories}
-LSST defines three main categories of data products to be served by Rubin. 
-The different categories are designed to enable different types of science. 
+LSST defines three main categories of data products to be served by Rubin.
+The different categories are designed to enable different types of science.
 Each category of data product may comprise any or all of the data product types described in \S~\ref{sec:dp-categories}.
 
 % For each category, describe 1) the science that they enable, 2) how they are produced, 3)what the data products in each category are and 4)  how and on what latency they are served. }
 % Some general comment somewhere about the various metadata products that are also produced during nightly processing and made available to users.
 \subsubsection{Prompt data products} \label{sec:dp-prompt}
-Prompt data products are designed to enable time domain science, the rapid discovery, characterization and follow up of objects that have been observed to change in position or brightness on the sky. 
+Prompt data products are designed to enable time domain science, the rapid discovery, characterization and follow up of objects that have been observed to change in position or brightness on the sky.
 {\it Add in a list of science cases that will be enabled on the various time scales}
-These data products are fully processed single visit images, difference images, and the catalogs produced by difference image analysis (DIA)  (sec ref to software products). 
-DIA outputs consist of,  the sources detected in difference images (DIASources), the astrophysical objects that the sources are associated to (DIAObjects), 
-characterizations of hitherto identified Solar System objects (SSObject), and discoveries of new Solar System objects. 
+These data products are fully processed single visit images, difference images, and the catalogs produced by difference image analysis (DIA)  (sec ref to software products).
+DIA outputs consist of,  the sources detected in difference images (DIASources), the astrophysical objects that the sources are associated to (DIAObjects),
+characterizations of hitherto identified Solar System objects (SSObject), and discoveries of new Solar System objects.
 
-Prompt data products are the result of nightly processing. 
-Prompt data products are all based on difference imaging, and as such require transient-free templates to  exist for each pointing and filter. The production of templates 
-Prompt data products are release on a continual and ongoing basis. 
+Prompt data products are the result of nightly processing.
+Prompt data products are all based on difference imaging, and as such require transient-free templates to  exist for each pointing and filter. The production of templates
+Prompt data products are release on a continual and ongoing basis.
 Two latencies, 60s for alerts and 24hrs for the catalogs. Data on likely optical transients, will be released publicly with a latency of at most 60s.
 
-They are generated continuously every observing night, including both alerts to objects that have changed brightness or position, 
-which are released with 60-second latency, 
-and other catalog and image data products that are released with 24-hour latency. 
-Prompt image data products include: 
-\paragraph {Image data products}  PVIs,   
-\paragraph {Catalog data products}  DIASource, DIAObject catalogs, 
-\paragraph {Alerts}  
+They are generated continuously every observing night, including both alerts to objects that have changed brightness or position,
+which are released with 60-second latency,
+and other catalog and image data products that are released with 24-hour latency.
+Prompt image data products include:
+\paragraph {Image data products}  PVIs,
+\paragraph {Catalog data products}  DIASource, DIAObject catalogs,
+\paragraph {Alerts}
 
 
 \subsubsection{Data Release data products} \label{sec:dp-release}
-A Data Release (DR) is specific, fixed {\tt snapshots} of the data at a given time. 
-Data Releases are made periodically and that can be used and 
-unambiguously referenced in published analyses. 
-The catalogs that form the data release will include an extensive list of quantities measured on sources detected in images and 
+A Data Release (DR) is specific, fixed {\tt snapshots} of the data at a given time.
+Data Releases are made periodically and that can be used and
+unambiguously referenced in published analyses.
+The catalogs that form the data release will include an extensive list of quantities measured on sources detected in images and
 enable a variety of science analyses without the need for users to access or reprocess the images
 These data products will be made available as part of an LSST Data Release (\S~\ref{}) as the result of coherent
-processings of the entire science data set to date. 
+processings of the entire science data set to date.
 These will include calibrated images, measurements of positions, fluxes, and shapes,  variability information such as orbital
 parameters for moving objects, and an appropriate compact description of light curves.
 The Data Release data products will include a uniform reprocessing of the difference imaging-based Prompt data products.
 
 
 \subsubsection{User Generated data products} \label{sec:dp-user}
-User Generated data products data products will originate entirely from the community, including project teams. 
-These will be created and stored using suitable Application Programming Interfaces (APIs) 
-that will be provided by the LSST Data Management System. 
+User Generated data products data products will originate entirely from the community, including project teams.
+These will be created and stored using suitable Application Programming Interfaces (APIs)
+that will be provided by the LSST Data Management System.
 The system will allow the science teams to use the full power of the Rubin database systems and
-Science Platform for the storage, access, and analysis of their results. 
-It will provide for users and groups to maintain access control over the data products they create, 
-enabling them to have limited distribution or to be shared with the entire LSST community. 
+Science Platform for the storage, access, and analysis of their results.
+It will provide for users and groups to maintain access control over the data products they create,
+enabling them to have limited distribution or to be shared with the entire LSST community.
 
 The Rubin Science Platform (\S~\ref{}) will allow for the creation of User Generated data
 products and will enable science cases that greatly benefit from co-location of
-user processing and/or data within the LSST Archive Center. 
+user processing and/or data within the LSST Archive Center.
 % SRD
 
 %data products are generated continuously every observing night, including alerts
@@ -92,53 +92,53 @@ user processing and/or data within the LSST Archive Center.
 %database infrastructure to store their results.
 
 
-The first two, {\tt Prompt} and {\tt Data Release} data products are produced and delivered by the DM system described in this paper. 
-The third, {\tt User Generated} data products are produced by the Rubin Science Community using the {\tt Prompt} and {\tt Data Release} together possibly with data from other surveys. 
+The first two, {\tt Prompt} and {\tt Data Release} data products are produced and delivered by the DM system described in this paper.
+The third, {\tt User Generated} data products are produced by the Rubin Science Community using the {\tt Prompt} and {\tt Data Release} together possibly with data from other surveys.
 
-The data product categories are outlined in \cite{LPM-231}
+The data product categories are outlined in \citet{LPM-231}
 
 In operations Data Production will use the the software outlined in \secref{sec:softproducts} to produce the various data products.
 
-Show mapping from data product type to category. i.e prompt contains images, catalogs, but not he same ones as DR/ 
+Show mapping from data product type to category. i.e prompt contains images, catalogs, but not he same ones as DR/
 
-UG catalogs can be federated with DR/PP catalogs. 
+UG catalogs can be federated with DR/PP catalogs.
 
-These data product categories are defined in the SRD (\citep{LPM-17}) and have been a driver for DM 
-(add more detail about why) 
+These data product categories are defined in the SRD (\citep{LPM-17}) and have been a driver for DM
+(add more detail about why)
 
 \subsection{Special programs}
-Say something about data products from Special Programs.  
-The special programs data products will be processed and stored as for all other data products. 
+Say something about data products from Special Programs.
+The special programs data products will be processed and stored as for all other data products.
 Maybe doesn't need to be a subsection
 
 \subsection{Intermediate data products}
-During processing, many intermediate data products are created. If is not feasible nor efficient to store them all. 
-The DM system provides services to generate data products. 
-Desscribe the generation of intermediate data products, in particular to generate intermediate flavours of coadds. 
+During processing, many intermediate data products are created. If is not feasible nor efficient to store them all.
+The DM system provides services to generate data products.
+Desscribe the generation of intermediate data products, in particular to generate intermediate flavours of coadds.
 
 
 \subsection{Data Product Verification}
-The quality of all Level 1 and Level 2 data products will be extensively assessed, both automatically as well as manually. 
-Described in detail in \cite{PSTN-024}
-Not sure this section is needed. 
+The quality of all Level 1 and Level 2 data products will be extensively assessed, both automatically as well as manually.
+Described in detail in \citet{PSTN-024}
+Not sure this section is needed.
 
-DP verification and QA will be carried out automatically following reprocessing runs and in advance of each data release 
-Validation of the products is covered in \cite{PSTN-024}.
+DP verification and QA will be carried out automatically following reprocessing runs and in advance of each data release
+Validation of the products is covered in \citet{PSTN-024}.
 
 \subsection{Commissioning Data Products}  \label{sec:dp-commissioning}
-Describe here (possibly in a table) the exact data products delivered in commissioning and the science that they enable. 
-This will be a high level description and can refer to the DP2 DPDD for exact details. 
+Describe here (possibly in a table) the exact data products delivered in commissioning and the science that they enable.
+This will be a high level description and can refer to the DP2 DPDD for exact details.
 
 \subsection{Anticipated Data Release 1 Data Products} \label{sec:dp-dr1}
 
-The data products delivered during commissioning represent only an initial set of data products. 
+The data products delivered during commissioning represent only an initial set of data products.
 The commissioning data set does not enable the production of .... (galaxy shape measurements ... )
-In addition to the commissioning data products described in \S~\ref{sec:dp-commissioning}, we anticipate providing: 
+In addition to the commissioning data products described in \S~\ref{sec:dp-commissioning}, we anticipate providing:
 
 \begin{itemize}
 \item {\tt Object} catalog photo-$z$ data products.
-%\item proper motions for Gaia stars 
+%\item proper motions for Gaia stars
 \end{itemize}
-This list is neither definitive nor exhaustive; the exact list of data products to be provided as part of future LSST Data Releases will be determined closer to the time of release. 
+This list is neither definitive nor exhaustive; the exact list of data products to be provided as part of future LSST Data Releases will be determined closer to the time of release.
 
-% The detailed  Data Products Definition may be found in  \cite{LSE-163}.
+The detailed  Data Products Definition may be found in  \citet{LSE-163}.
