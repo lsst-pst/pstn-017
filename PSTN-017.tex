@@ -1,7 +1,4 @@
-\documentclass[modern]{aastex62}
-
-% lsstdoc documentation: https://lsst-texmf.lsst.io/lsstdoc.html
-\input{meta}
+\documentclass[twocolumn]{aastex631}
 
 % Package imports go here.
 
@@ -24,25 +21,40 @@
 
 \begin{document}
 \input{authors}
-\date{\today}
-\title{Overview of LSST Data Management}
-\hypersetup{pdftitle={\@title}, pdfauthor={\@author}, pdfkeywords={\@keywords}}
+\title{Overview of the Vera C.\ Rubin Observatory Data Management System}
+\hypersetup{
+    pdftitle={Overview of Vera C. Rubin Observatory Data Management System},
+    pdfauthor={O'Mullane et al},
+    pdfkeywords={LSST, Data Management}}
 
 \input{abstract}
 
+\keywords{%
+    Astrophysics - Instrumentation and Methods for Astrophysics
+    ---
+    methods: data analysis
+    ---
+    methods: miscellaneous
+}
+
 \input{body}
 
-\appendix
-% Remove this when you strart your paper
-%\input{appendix}
+\begin{acknowledgments}
+This material is based upon work supported in part by the National Science Foundation through Cooperative Agreement AST-1258333 and Cooperative Support Agreement AST-1202910 managed by the Association of Universities for Research in Astronomy (AURA), and the Department of Energy under Contract No. DE-AC02-76SF00515 with the SLAC National Accelerator Laboratory managed by Stanford University.
+Additional Rubin Observatory funding comes from private donations, grants to universities, and in-kind support from LSSTC Institutional Members.
+\end{acknowledgments}
+
+\facilities{Rubin (LSSTCam), RubinAux (LATISS)}
+\software{
+    Rubin Science Platform \citep{LDM-542},
+    LSST Science Pipelines \citep{PSTN-019},
+    Qserv \citep{Wang:2011:QDS:2063348.2063364}
+}
+
 % Include all the relevant bib files.
 % https://lsst-texmf.lsst.io/lsstdoc.html#bibliographies
 \label{sec:bib}
-\bibliographystyle{yahapj}
 \bibliography{local,lsst,lsst-dm,refs_ads,refs,books}
 
-% Make sure lsst-texmf/bin/generateAcronyms.py is in your path
-\section{Acronyms} \label{sec:acronyms}
-\input{acronyms.tex}
 
 \end{document}
