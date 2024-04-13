@@ -1,6 +1,33 @@
 \subsection{Data Production} \label{sec:dataproduction}
-The science pipelines which produce the prompt and data release products are of course the most identifiable
-software product from DM.
-The detailed approach to Science Pipelines is covered in \citet{PSTN-019}.
 
+Data Production is underpinned by the fast and robust LSST Science Pipelines \citet{PSTN-019}, the image processing software written to convert the raw pixels from the Rubin observatory into science-ready data products for astronomers. It takes the raw images as input, and calibrates away the effects of the instrument and atmosphere to produce catalogs and images. Many science analyses can be done with the catalogs alone. Still, as new image processing algorithms are developed over the next decade, we expect the output calibrated coadds, difference images and processed visit images to be used by scientists running specialized detection algorithms during the survey.
 
+The LSST Science Pipelines deliver data products fast and slow. The prompt data products are delivered via the nightly alert stream. These data products support science that requires rapid follow-up. The slower annual data release processing produces calibrated images and catalogs, including lightcurves, to support static sky science and statistical studies of variability.
+
+These pipelines incorporate algorithms for tasks such as detrending, image subtraction, deblending, object characterization, and sky background estimation, among others. When research and development on the pipelines first began in 2004, there was code that could accomplish some of these routines (AstroPy, PyRAF), but none were as robust and fast as needed for LSST. With 3.2 gigapixels of data rolling in every 30 seconds, the data volume grows very quickly. Fast and robust algorithms are needed to process this data efficiently.
+
+The pipelines achieve their speed through Python3-wrapped C++ and are versatile enough for any ground-based optical or IR telescope. However, they require well-sampled PSFs, making them unsuitable for space-based imaging.
+
+The LSST Science Pipelines will continue to evolve throughout LSST's 10-year survey. A portion of LSST's operating budget will be spent on maintaining state-of-the-art algorithms. The state of the art has changed significantly over the last ten years, and there's no reason to believe it will not change over the next decade.
+
+The current algorithms reflect the hard-earned lessons from precursor surveys such as the Dark Energy Survey and Pan-STARRS.
+These include, for example:
+\begin{itemize}
+\item the PSF modeling algorithm, PIFF (citation)
+\item the astrometric calibration algorithms GBDES. (citation)
+\item The photometric calibration algorithm, FGCM (citation)
+\item The artifact rejection algorithm during coaddition. (citation)
+\item pattern continuity algorithm for matching amp-to-amp gain offsets (citation?)
+\end{itemize}
+
+Formal Agile development practices were adopted in 2014 when we received funding to start construction. At the time, we had minimal-viable algorithm pipelines used in both internal data challenges to process SDSS Stripe 82 data (cite 2012, 2013), and they were also selected as the data release pipelines for the Hyper SuprimeCam Strategic Survey Program  (Bosch et al. 2018, 2019). Feedback from the scientific community, particularly through four public data releases of the Hyper Suprime Cam (HSC) data, has been crucial in refining our algorithms.
+
+We combine unit tests, continuous integration tests, and regression tests. During construction, Jenkins runs continuous integration tests nightly on small subsets of precursor data, including simulated  LSST data and public HSC data. Before merging with the main branch, developers test their ticket branches on these CI tests.
+
+The science pipelines are run in prompt and data release production, utilizing the DM Middleware task framework (CITE DATA ABSTRACTION). This abstraction layer significantly enhances the portability of science pipelines. The Butler acts as a data abstraction layer, removing the need for direct I/O operations or knowledge of the storage backend by the pipelines. Data releases have been successfully executed using the pipelines on Google Cloud and on-premise hardware, managed by workflow systems such as HTCondor or PanDA. The primary startup cost involves ingesting your dataset into the Butler.
+
+All algorithms are implemented as subclasses of the parent PipelineTask, which specifies their inputs and outputs. This structure enables the middleware to construct a directed acyclic graph of all processing tasks required for a specific data product. These tasks are the fundamental building blocks of the pipelines. The pipelines themselves consist of these tasks, each utilized in various ways across different processes. For instance, the data release and other production pipelines include the same subtractImages task.
+
+Initially, the Science Pipelines were designed to run exclusively on CPUs, reflecting the hardware budgeting at the start of construction. Our processes are highly parallelizable, and we anticipate utilizing tens of thousands of cores during data release processing, with each core dedicated to a specific region of the sky or a particular observation. Given the available RAM per core, optimal sizing of sky patches could lead to full CPU utilization. Given advancements in image processing, we are also considering the potential integration of GPUs.
+
+Documentation and installation instructions can be found at pipelines.lsst.io.
