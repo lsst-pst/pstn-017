@@ -1,0 +1,40 @@
+\begin{table*}[ht]
+\centering
+\fontsize{6}{10}\selectfont 
+\setlength{\tabcolsep}{6pt} % Default value: 6pt
+{\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|l|c|c|c|c|c|}
+    \hline
+     \multirow{2}{*} {{\fontsize{9}{12}\selectfont \color{RubinDarkTeal}\vspace{0.1cm}\textbf{\makecell{LSST Data \\Products}}} } & 
+     
+       \multicolumn{3}{|c|}{{\fontsize{9}{12}\selectfont \color{RubinDarkTeal}\textbf{Prompt}}} &
+
+     {{\fontsize{9}{12}\selectfont \color{RubinDarkTeal}\textbf{Data Release}}} 
+    \\ \cline{2-5}
+        &
+        {\textbf{120 sec}}  & 
+        {\textbf{<= 24 hours}  } &
+	{\textbf{>=80 hours} } &  
+	{\textbf{Annually}}    
+       \\\cline{2-5 } \hline
+    
+Images   & Cutouts in Alerts  &  -- &   Single-epoch PVIs  &  
+     \makecell{Raw exposures (snaps) \\ Raw exposures (visit)\\  PVIs \\   Calibration frames  \\ 
+     Deep coadds \\ Template coadds \\  RGB  images derived from coadds}  \\\arrayrulecolor{gray}\hline
+
+Catalogs    &  --  &  \makecell{} &   --   &  \makecell{}   \\\hline 
+
+Alerts     &  \makecell{Alerts to DIASources \\  Alerts to sub-threshold DIASources}  & --  &    --  &   --   \\\hline
+
+Survey Property  Maps      &   --  &   -- &    --  &   \makecell{Several types of survey property maps}    \\ \hline
+
+Calibration Data Products      &  --  &  --  &    --  &   \makecell{All calibration frames   \\  Raw and processed AuxTel data.}  \\  
+\hline\hline
+
+ 
+ \arrayrulecolor{black}\hline
+\end{tabular}
+} % arraystretch
+\caption{Summary of LSST Data Products and the cadences on which they will be released}
+\label{tab:dptable}
+\end{table*}
