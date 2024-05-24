@@ -1,29 +1,32 @@
 \section {Architecture, Data Transmission and  Access } \label{sec:arch}
-DM spans multiple locations with processing occurring at the USDF (SLAC), FrDF (IN2P3) and UK (ROE).
-\begin{figure}
+DM spans multiple locations with processing occurring at the USDF (SLAC), FrDF (IN2P3) and UK (IRIS).
+The system vision has been fairly consistently to deliver science ready data products to the Rubin community as depicted in \autoref{fig:vision}.
+
+\begin{figure*}[ht]
 \plotone{DMSystemVision}
-\caption{Overview of data managent from the telescope to the user. \label{fig:vision}}
-\end{figure}
+\caption{Overview of data management from the telescope to the user. \label{fig:vision}}
+\end{figure*}
 
-Show network diagram and architecture diagrams for alerts/DRP. Mention Data Access doc  \citep{RDO-013} and
-setting up of DACs in Chile and USA.
+The organisation and management of DM is covered in \autoref{sec:org}
 
-\subsection{Architecture}
-
+The DM system architecture was laid out in \cite{LDM-148} from which we reproduce \autoref{fig:arch}
 \begin{figure}
 \plotone{DMS_Architecture}
 \caption{Rubin DM architecture diagram \citet{LDM-148}\label{fig:arch}}
 \end{figure}
 
-\subsection{Networks} \label{sec:network}
-
-\subsection{Data Access} \label{sec:dataaccess}
 
 As shown in \figref{fig:vision} there are several kinds of Rubin data - mostly they are accessed via
-the science platform or a community broker.
-In addition some products may be accessed via and independent data access center. We will provide a few more details in this section.
+the science platform or other services which are described in \autoref{sec:dataservices}.
 
-\subsubsection{Data Access Centers}
+Data production \autoref{sec:dataproduction} is responsible for all of the pipelines and their execution.
 
-\subsubsection{Alerts and Brokers}
+Of course all these services and pipelines must run on hardware which is typically at a data facility.
+The data facilities are covered in \autoref{sec:datafacilities}
+
+
+\subsection{Alerts and Brokers}
+Alerts are  product of DM operations and  briefly covered in \autoref{sec:dataproducts}.
+The software producing alerts, know and the Alerts Pipeline (AP), is discussed in \todo{REFER TO ALERTS PIPELINES SECTION}
+\todo{Leanne: you said you might have a go a this }
 Mention community alert brokers.

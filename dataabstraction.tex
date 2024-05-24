@@ -1,0 +1,26 @@
+\subsection{Data Abstraction} \label{sec:dataabstraction}
+
+The Data Abstraction is responsible for providing standardized interfaces to data and metadata such that the science users and pipeline developers can focus on the algorithms and science results.
+
+\subsection{Data Engineering}
+
+The Data Engineering team:
+
+\begin{itemize}
+\item Validates file FITS headers and provides tooling for ensuring correct values are stored in the headers even if the file was originally written incorrectly.
+\item Provides standardized metadata translation mechanisms such that downstream users can always ask for information from an observation regardless of the instrument or instrument-specific FITS header conventions.
+\item Provides tooling for specifying schemas used for data release products in a machine-readable form \citep{DMTN-153}.
+\item Follows and contributes to evolving IVOA standards.
+\end{itemize}
+
+\subsection{Pipeline Middleware}
+
+From the very beginning of the project it was decided that algorithm code should always work on in-memory representations of datasets and should not know where data come from, what form it was stored on disk, or where data will be written to or how it will be written.
+The Data Butler was developed to meet these requirements \citep{DMTN-288,2022SPIE12189E..11J}.
+
+\subsection{Build Engineering}
+
+\begin{itemize}
+\item Use Jenkins to make pipelines releases and to support continuous integration.
+\item Use EUPS and Docker for distribution.
+\end{itemize}

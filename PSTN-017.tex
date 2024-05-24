@@ -1,11 +1,17 @@
 \documentclass[twocolumn]{aastex631}
 
 % Package imports go here.
+\usepackage{multirow} %for multirow
+\usepackage{makecell}
+\usepackage{xcolor,color, colortbl} % colortbl for arrayrulecolor
+
 
 % Local commands go here.
+\newcommand{\todo}[1]{}
+\renewcommand{\todo}[1]{{\color{red} TODO: {#1}}}
+\definecolor{RubinDarkTeal}{HTML}{058B8C}
 
 \graphicspath{{./images/}}
-
 
 
 \newcommand{\docRef}{PSTN-017}
@@ -21,9 +27,9 @@
 
 \begin{document}
 \input{authors}
-\title{Overview of the Vera C.\ Rubin Observatory Data Management System}
+\title{Overview of the Vera C.\ Rubin Observatory Data Management}
 \hypersetup{
-    pdftitle={Overview of Vera C. Rubin Observatory Data Management System},
+    pdftitle={Overview of Vera C. Rubin Observatory Data Management},
     pdfauthor={O'Mullane et al},
     pdfkeywords={LSST, Data Management}}
 
@@ -44,7 +50,7 @@ This material is based upon work supported in part by the National Science Found
 Additional Rubin Observatory funding comes from private donations, grants to universities, and in-kind support from LSSTC Institutional Members.
 \end{acknowledgments}
 
-\facilities{Rubin (LSSTCam), RubinAux (LATISS)}
+\facilities{Rubin:Simonyi (LSSTCam), Rubin:1.2m (LATISS)}
 \software{
     Rubin Science Platform \citep{LDM-542},
     LSST Science Pipelines \citep{PSTN-019},

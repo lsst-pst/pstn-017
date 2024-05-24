@@ -1,0 +1,59 @@
+
+\begin{deluxetable*}{lccccc}
+
+%% Keep a portrait orientation
+%% \rotate
+
+%% Over-ride the default font size
+%% Use Default (12pt)
+\tabletypesize{\footnotesize}
+
+%% Use \tablewidth{?pt} to over-ride the default table width.
+%% If you are unhappy with the default look at the end of the
+%% *.log file to see what the default was set at before adjusting
+%% this value.
+
+%% This is the title of the table.
+\tablecaption{Summary of LSST Data Products and the cadences on which they will be released}
+
+%% The \tablehead gives provides the column headers.  It
+%% is currently set up so that the column labels are on the
+%% top line and the units surrounded by ()s are in the
+%% bottom line.  You may add more header information by writing
+%% another line between these lines. For each column that requries
+%% extra information be sure to include a \colhead{text} command
+%% and remember to end any extra lines with \\ and include the
+%% correct number of &s.
+\tablehead{
+  \colhead{LSST Data Products} & \multicolumn{3}{c}{Prompt} & \colhead{Data Release} \\
+  \colhead{} & \colhead{120 s} & \colhead{<= 24h} & \colhead{>= 80h} & \colhead{Annually}
+}
+
+%% All data must appear between the \startdata and \enddata commands
+\startdata
+Images &  Cutouts in Alerts &   -- &  Single-epoch PVIs  &
+      \makecell{Raw exposures (snaps) \\
+      Raw exposures (visit)\\
+      PVIs \\
+      Calibration frames  \\
+      Raw \&  processed AuxTel data \\
+      Deep coadds \\
+      Template coadds \\
+      RGB images derived from coadds}
+ \\
+Catalogs  &   --   &    &    --    &  \\
+Alerts    &  \makecell{Alerts to DIASources \\
+                       Alerts to sub-threshold DIASources}   &  --   &     --   &    -- \\
+Survey Property Maps &    --   &    --  &    --   &  \makecell{Several types of survey property maps}\\
+Spectra  &   --   &   --   &     --   &    \makecell{AuxTel spectra} \\
+\enddata
+
+%% Include any \tablenotetext{key}{text}, \tablerefs{ref list},
+%% or \tablecomments{text} between the \enddata and
+%% \end{deluxetable} commands
+
+%% No \tablecomments indicated
+
+%% No \tablerefs indicated
+
+\end{deluxetable*}
