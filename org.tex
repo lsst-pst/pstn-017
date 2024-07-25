@@ -1,7 +1,7 @@
 
 \section{Organisation of Data Management} \label{sec:org}
 
-The Organisation and management of DM is covered in detail in \citet{LDM-294}.
+The Organisation and management of DM constructionist covered in detail in \citet{LDM-294}.
 As shown in \figref{fig:org} DM Management is aligned mainly along the Work Breakdown Structure (WBS) of the project.
 It was found that a strict adherence to the WBS structure led to some products not being the responsibility's of a single manager when they spanned the organisation.
 To address this two cross cutting teams were identified  to take care of the Science Platform and middleware.
@@ -14,8 +14,7 @@ This also involves being the point of contact for any other stakeholders and inc
 Interpretation of requirements is always difficult on large projects like Rubin observatory, they exist over a long period of time, were often written by people no longer on the project, and frequently are not easily verifiable.
 Hence another important roll of the product owner is in defining the verification tests for the requirements.
 Tests give a very concrete interpretation of the requirement.
-Verification covers all subsystems, software and data  \citep{PSTN-024}.
-  DM will be verified and validated as part of System verification and validation \citep{2014SPIE.9150E..0NS,PSTN-029}
+Verification covers all subsystems an DM will be verified and validated as part of System verification and validation \citep{2014SPIE.9150E..0NS}
 
 
 
@@ -42,23 +41,59 @@ Milestones for major functionality, tied to major project milestones, were laid 
 The DM approach to the Earned Value Management System (EVMS) used through Rubin construction is shown in \citet{DMTN-020,2016SPIE.9911E..0NK}.
 
 \subsection{Mode of work}\label{sec:mode}
-The DM  team is distributed in several centers across the continental US as well as Chile and France.
+The DM  team is distributed in several centers across the continental US as well as Chile, France and the UK.
 A strong set of guidelines \href{https:\\developer.lsst.io}{developer.lsst.io} was introduced early on to help homogenize modes of work e.g. dealing with tickets, naming github branches, merges, code style etc.
-It has functioned as a distributed organisation from the beginning, which probably help it weather the COVID-19 pandemic reasonably well.
+It has functioned as a distributed organisation from the beginning, which probably helped it weather the COVID-19 pandemic reasonably well.
 The Technical Account Managers (T/CAM), as shown in \figref{fig:org}, have a large degree of autonomy to deliver their software products.
 The Data Management Leadership Team (DMLT) comprises the managers and product owners and has a brief (30 minute) weekly meeting to set direction and raise issues (on Mondays).
-There is a longer multi day meeting three or four times a year some of which were physical get togethers, at least before the pandemic.
+There is a longer multi day meeting three or four times a year some of which were physical get togethers, before the pandemic and morphed to one physical and two or three virtual meetings a year.
 The Managers have a standup meeting on Thursdays to work out any blockages or anticipated issues between the teams.
 Each team has its own regular meetings and discussions.
 
 There is a mature decision making process where, in general, decisions are made at the lowest level possible within the team i.e. at the level of the individual developer where practical. This is enshrined the \href{https://developer.lsst.io/team/empowerment.html}{empowerment section of the guide}.
 When this is not possible, decision making is escalated through the hierarchy using  the \href{https://developer.lsst.io/communications/rfc.html}{Request for Comments (RFC) mechanism}.
 DM captures decision making in technical notes (the DMTN series) or formal documents (the LDM series).
+As we approached operations we also introduced the Rubin Technical Notes (RTN series).
 
 
 \subsection{Relationship to other subsystems}
+In construction the subsystems started quite distinctly leading to a certain amount of \emph{siloing}.
+Early on this is good to allow the project to quickly start on many fronts but later, for integration, more communication is required to make sure the parts match up.
+Hence early in the project DM had little interaction with other subsystems and teams apart from System Engineering, in the end it is much more involved.
+The System Engineering team interacted with all parts of the project especially in the area of requirements engineering.
+DM used the system engineering tools such as Rose and later magic draw which supported the Model Based System Engineering approach \cite{2014SPIE.9150E..0MC}
+DM built on this relationship and created some tools to aid the verification process around Jira.
 
-As already mentioned all of Rubin interacts with System Engineering
-   We take images from the  LSST camera \citep{2010SPIE.7735E..0JK} and LATISS \citep{2020SPIE11452E..0UI}
+Interactions with the other subsystems are governed by change controlled  Interface Control Documents (ICD), though in many cases these were more like requirements documents we kept them updated through construction so the reflect the as built system going into operations.
+The main interface for DM was to the LSST camera \citep{2010SPIE.7735E..0JK} and LATISS \citep{2020SPIE11452E..0UI} to capture images and spectra.
+Image capture was originally an over designed parallel system where DM directly called the camera interface and reconstructed the images.
+It was felt this was error prone and would lead to discrepancies between DM and Camera.
+A simpler image interface was proposed \citep{DMTN-143}  whereby Camera writes the image file including the header and DM then pick it up for transfer.
+The header is provided by a DM service which listens to several telescope and site topics to gather information.
 
-   We are commanded and listen to the telescope  and site software  \citep{2022SPIE12182E..0WT}
+The interface to telescope and site was defined to be through the System Abstraction Layer (SAL) and large remains.
+This message bus system allows for commands to be sent to components as well as components to listen to messages from other components.
+In addition to picking up header information DM sends near realtime image metric information through SAL which is then displayed in the LSST Operations Visualisation Environment(LOVE).
+When DM performs actions, such as a header being ready, this is also broadcast through SAL.
+
+Though not in the original design DM supplied the underlying Engineering Facilities Database (EFD) service to telescope and site starting in 2018.
+\todo{Cite the EFD SPIE paper }
+
+DM also have interactions with Education and Public Outreach (EPO).
+We provide EPO with some of the EFD data and up to 10\% of the image data for public use.
+In addition DM produce a set of color HiPS \cite{2017ivoa.spec.0519F} maps for EPO to use in their interactive browser - these use a different color map to the science HiPS maps used.
+
+
+Through the Chile DevOps team telescope and site is supported by providing computing infrastructure and fibre optic cabling in the observatory.
+In a breaking down of silos telescope and site software uses Dm like infrastructure with most components deployed via kubernetes and phalanx.
+This includes using conda for dependency management, github for code and lsst.io for documentation.
+A few  summit systems, including camera machines,  use only puppet.
+A few National Instruments base systems can not be automated and need manual upgrades which are generally not handled by DM.
+
+
+
+
+We are commanded and listen to the telescope  and site software  \citep{2022SPIE12182E..0WT}
+
+%Transition to operations
+\input{transition}

@@ -1,25 +1,90 @@
 \section{Data Products} \label{sec:dataproducts}
 
-The LSST data collected by Rubin Observatory is automatically processed by the LSST science pipelines, as described in (\S~\ref{sec:softproducts}) to produce the LSST data products. The data products have been designed to enable the vast majority of
-LSST science, without the need to access the raw pixels or for users to reprocess the data. (it would be a gargantuan effort if not and totally unscalable).  Some example science cases where  pixel access  or a reprocessing of the data might be warranted are, subtracting a different background (LSB science), reprocessing a small fraction of images to develop the systematics budget for weak lensing studies (DESC). (others?). This section provides a high-level overview of the LSST data products.
+ Rubin Observatory’s LSST Science Pipelines (\S~\ref{sec:softproducts}) will produce the \emph{science-ready data products}.
+ These data products have been carefully designed to enable the vast majority of LSST science without the need to access the raw pixels, nor for users to reprocess the data. 
+There will however be some science cases where pixel access or a reprocessing of the data is warranted are, such as estimating and subtracting a different background (LSB science), reprocessing a small fraction of images to develop the systematics budget for weak lensing studies (Dark Energy science), or injecting fake objects into images and reprocessing them to develop models for artifact rejection.  
+In all such cases involving image reprocessing, we anticipate that users will start from images that have been corrected for instrumental effects and photometrically and astrometrically calibrated. 
+
+The Data Products Definition Document, \citep{LSE-163} was used to  describe the data products produced by the LLSST  and guide the development of the Data Management System.
+
+In this section we provide a high-level overview of the LSST science-ready data products. 
+A detailed description of the LSST data products and their scientific performance on the early LSST commissioning data is given in \citep{PSTN-024}.
+
+
+% Types of data product 
+% -- the different types
+% Categories of data product
+% -- the different categories are designed to address different goals, and are delivered on a range of cadences.
 
 %Describe the science  that they will enable - i.e why are we creating these data products?
 %How are they created, how are they distributed and or served
 
 \subsection{Types of Data Product} \label{sec:dp-types}
-LSST produces three types of data products;  images, catalogs and alerts.
+LSST produces several types of data products. 
 
 \paragraph {\tt Images}~
-pricessed visit images (PVI) are images that have been corrected for instrumental effects and photometrically and astrometrically  calibrated.
+processed visit images (PVI) are images that have been corrected for instrumental effects and photometrically and astrometrically  calibrated.
 raw single visit images, calibrated processed visit images (PVI), coadd images, cutouts (postage stamps)
 
-\paragraph {\tt  catalogs}~
+Rubin images  are rich data products, which, in addition to storing the image pixel data also contain the PSF model, WCS and mask plane, ... what else
+
+Include a description of cutout images and how they will be accessed
+
+What is the maximum size of a cutout, how many at a time?
+
+Image data products also includes   calibration frames (darks, flats, biases, fringe, etc.) 
+
+coadds -- We reiterate that not all coadds will be kept and served to the public
+
+template coadds\
+RGB color images derived from coadds	
+
+All calibration frames (darks, flats, biases, fringe, etc.) will be preserved and made available. 
+Provide the full list of calibration images and the data products that come out of cp\_pipe.
+
+
+\paragraph {\tt Spectra}~
+AuxTel data ... 
+All auxiliary telescope data, both raw (images with spectra) and processed (calibrated spectra,
+derived atmosphere models), will be preserved and made available for download.
+
+
+\paragraph {\tt  Catalogs}~
 DR includes Object, Source, DIASource, DIAObject,
 
-\paragraph {\tt  alerts}~
+Object
+`
+Source 
+
+ForcedSource
+
+ShearObject
+
+\paragraph {\tt  Alerts}~
 A composite data product that includes image cutouts (postage stamps) and extracts of catalog data.
-Alerts packets are distributed via the alert distribution system (\S~ref), one alert for each object that
-has changed in brightness or position on the sky.
+Alerts packets are distributed via the alert distribution system (\S~ref), one alert for each object that 	has changed in brightness or position on the sky.
+
+% 5Sigma alerts
+
+
+% Sub-threshold alerts
+In addition to the alerts detected on DIASources above the nominal detection threshold of 5$\sigma$, we  also measure and store a small sample of DIASources detected the nominal 5$\sigma$ threshold.
+There are several drivers  for these \emph{sub-threshold alerts}, for example to enable monitoring of difference image analysis quality or to assess the danger posed by a potentially hazardous asteroid.
+A set of criteria, described in \citep{dmtn-228}  was defined  based on key science cases.
+
+
+\paragraph {\tt  Calibration Data Products} ~
+
+
+\paragraph {\tt  Survey Property Maps}~
+
+Several types of survey property maps will be generated and served to users. 
+The properties are typically the mean or total values determined from the images input to generate the deep coadd. 
+The types of maps will include the total exposure time; the point-source 5-sigma AB magnitude limit; the weighted mean of the PSF moments; the weighted mean of the sky background and sky noise; and the average effect of differential chromatic refraction (DCR) in the
+right ascension and declination directions, and in the PSF moments. 
+Property maps based on statistics measured on deep coadds might also be generated.
+
+
 
 \subsection{Categories of Data Product} \label{sec:dp-categories}
 LSST defines three main categories of data products to be served by Rubin.
@@ -61,6 +126,11 @@ These will include calibrated images, measurements of positions, fluxes, and sha
 parameters for moving objects, and an appropriate compact description of light curves.
 The Data Release data products will include a uniform reprocessing of the difference imaging-based Prompt data products.
 
+ \input{dptable}
+
+
+\subsection{Other categories of data products}
+\label{sec:dpother}
 
 \subsubsection{User Generated data products} \label{sec:dp-user}
 User Generated data products data products will originate entirely from the community, including project teams.
@@ -97,7 +167,7 @@ The third, {\tt User Generated} data products are produced by the Rubin Science 
 
 The data product categories are outlined in \citet{LPM-231}
 
-In operations Data Production will use the the software outlined in \secref{sec:softproducts} to produce the various data products.
+In operations Data Production will use the  software outlined in \secref{sec:softproducts} to produce the various data products.
 
 Show mapping from data product type to category. i.e prompt contains images, catalogs, but not he same ones as DR/
 
@@ -106,39 +176,15 @@ UG catalogs can be federated with DR/PP catalogs.
 These data product categories are defined in the SRD \citep{LPM-17} and have been a driver for DM
 (add more detail about why)
 
-\subsection{Special programs}
+\subsection{Special programs data products}
 Say something about data products from Special Programs.
 The special programs data products will be processed and stored as for all other data products.
 Maybe doesn't need to be a subsection
 
-\subsection{Intermediate data products}
+\subsection{Custom data products}
 During processing, many intermediate data products are created. If is not feasible nor efficient to store them all.
 The DM system provides services to generate data products.
-Desscribe the generation of intermediate data products, in particular to generate intermediate flavours of coadds.
+Describe the generation of custom data products, in particular to generate  flavours of coadds.
 
 
-\subsection{Data Product Verification}
-The quality of all Level 1 and Level 2 data products will be extensively assessed, both automatically as well as manually.
-Described in detail in \citet{PSTN-024}
-Not sure this section is needed.
 
-DP verification and QA will be carried out automatically following reprocessing runs and in advance of each data release
-Validation of the products is covered in \citet{PSTN-024}.
-
-\subsection{Commissioning Data Products}  \label{sec:dp-commissioning}
-Describe here (possibly in a table) the exact data products delivered in commissioning and the science that they enable.
-This will be a high level description and can refer to the DP2 DPDD for exact details.
-
-\subsection{Anticipated Data Release 1 Data Products} \label{sec:dp-dr1}
-
-The data products delivered during commissioning represent only an initial set of data products.
-The commissioning data set does not enable the production of .... (galaxy shape measurements ... )
-In addition to the commissioning data products described in \S~\ref{sec:dp-commissioning}, we anticipate providing:
-
-\begin{itemize}
-\item {\tt Object} catalog photo-$z$ data products.
-%\item proper motions for Gaia stars
-\end{itemize}
-This list is neither definitive nor exhaustive; the exact list of data products to be provided as part of future LSST Data Releases will be determined closer to the time of release.
-
-The detailed  Data Products Definition may be found in  \citet{LSE-163}.

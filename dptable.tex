@@ -1,0 +1,63 @@
+%\begin{deluxetable*}{p{3cm}p{2.5cm}p{2.5cm}p{2.5cm}p{5cm}}
+\begin{deluxetable*}{rcccc}
+
+%% Keep a portrait orientation
+%% \rotate
+
+%% Over-ride the default font size
+%% Use Default (12pt)
+\tabletypesize{\footnotesize}
+
+%% Use \tablewidth{?pt} to over-ride the default table width.
+%% If you are unhappy with the default look at the end of the
+%% *.log file to see what the default was set at before adjusting
+%% this value.
+
+\setlength{\tabcolsep}{10pt}
+
+%% This is the title of the table.
+\tablecaption{Summary of LSST Data Products and the cadences on which they will be released}
+
+%% The \tablehead gives provides the column headers.  It
+%% is currently set up so that the column labels are on the
+%% top line and the units surrounded by ()s are in the
+%% bottom line.  You may add more header information by writing
+%% another line between these lines. For each column that requries
+%% extra information be sure to include a \colhead{text} command
+%% and remember to end any extra lines with \\ and include the
+%% correct number of &s.
+\tablehead{
+   \multirow{2}{*}{
+   \fontsize{9}{12}\selectfont \textbf{\makecell[r]{LSST Data \\ Product}}} &  
+   \multicolumn{3}{c}{\textbf{Prompt}} &
+   \colhead{\textbf{Data Release}} \\
+     \cline{2-5} 
+  \colhead{} & \colhead{60/120 sec} & \colhead{$\leq$ 24 hrs} & \colhead{$\geq$ 80 hrs} & \colhead{$\approx$ Annually}
+}
+
+%% All data must appear between the \startdata and \enddata commands
+\startdata
+ \textbf{Images} &  \makecell{Cut-outs \\in Alerts} &   --  &  
+ \makecell{Raw Images \\ Processed Visit Images \\ Difference Images \\ Image Differencing Templates}  &
+      \makecell{Raw exposures \\
+      Processed Visit Images \\
+      Calibration frames  \\
+      Deep coadds \\
+      Template coadds \\
+      RGB Images}
+ \\
+\textbf{Catalogs}  &   \makecell{\\Prompt Catalog \\data  in Alerts \\  }  &  \makecell{\\Prompt \\ Catalogs}  & ---   & \makecell{\\Data Release \\Catalogs}     \\
+\textbf{Alerts}    &  \makecell{\\Alerts from \\DIASources \\ }  &  ---   &     ---   &    --- \\
+\makecell[r]{\textbf{Maps}} &  ---     &    ---  &    ---   &  \makecell{\\Survey \\property maps}\\
+\textbf{Spectra}  &   ---   &   ---   &  ---     &    \makecell{\\Auxiliary \\Telescope spectra} \\
+\enddata
+
+%% Include any \tablenotetext{key}{text}, \tablerefs{ref list},
+%% or \tablecomments{text} between the \enddata and
+%% \end{deluxetable} commands
+
+%% No \tablecomments indicated
+
+%% No \tablerefs indicated
+\label{tab:dpsummary}
+\end{deluxetable*}
