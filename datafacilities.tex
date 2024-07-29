@@ -8,6 +8,14 @@ In this arrangement, the USDF will coordinate each processing {\em Campaign} and
 
 \subsubsection{French Data Facility} \label{sec:frdf}
 
+The computing centre of France's National institute of nuclear and particle physics (IN2P3)\footnote{\url{https://cc.in2p3.fr}} hosts and operates Rubin's French Data Facility (FrDF)\footnote{\url{https://doc.lsst.eu}}. This computing and storage infrastructure is sized to store a full copy of the raw images as well as to contribute $40\%$ of the image processing capacity required to produce the Data Releases, for the duration of the observatory's operations phase.
+
+A compute element exposes the site's batch farm to Rubin's central campaign management system and a Butler-compatible storage element (see \autoref{sec:dataabstraction}) stores input data as well as locally-produced data products. At the end of each processing campaign, final products are replicated to the US Data Facility where they are combined for composing the Data Release.
+
+FrDF builds and packages the LSST Science Pipelines for distribution via a software content distribution based on CERN's CernVM File System\footnote{\url{https://sw.lsst.eu}}. This distribution mechanism, which all the Rubin data facilities subscribe to, ensures that they all use an identical copy of the pipelines for the purposes of producing the Data Releases.
+
+In addition, the French Data Facility contributes to perform realistic test campaigns of Rubin's distributed system being developed to prepare the Data Releases, including the development of the inter-facility data replication system. Evaluation instances of the Rubin Science Platform and the catalog database have been locally deployed continuously since several years. The facility also hosts Fink \citep{10.1093/mnras/staa3602}, one of the Rubin community alert brokers.
+
 \subsubsection{UK Data Facility} \label{sec:ukdf}
 
 UK interest in the Vera C. Rubin Observatory is coordinated by the LSST:UK Consortium, which has 36 partners representing all major UK astronomy research groups.
