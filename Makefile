@@ -27,3 +27,7 @@ clean:
 	rm -f authors.tex
 
 .FORCE:
+
+.FORCE:
+authors.yaml: 
+	python3 $(TEXMFHOME)/../bin/makeAuthorListsFromGoogle.py --signup 4 -p 1CGxjpPuyNJ_gXRHTvkEF0qeI0XedQ-GQgbmyzWFLSUE "PSTN-017!A2:E1000"
